@@ -16,6 +16,7 @@ dat <- as_tibble(x) %>%
 range(dat$x)
 
 
+# plots --------------------------------------------------------------------------
 
 # create an histogram with the frequency polygon
 ggplot(data=dat, aes(x=x)) +
@@ -25,6 +26,8 @@ ggplot(data=dat, aes(x=x)) +
   expand_limits(x = 0, y = 0) +
   scale_x_continuous(breaks = seq(0, 30, 3)) +
   theme_minimal()
+
+
 
 # create an equivalent density plot
 ggplot(data=dat, aes(x=x)) +

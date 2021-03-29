@@ -1,5 +1,6 @@
 # load the packages --------------------------------------------------------------
 library(finalfit)
+library(ggsci)
 library(rstatix)
 library(tidyverse)
 
@@ -25,12 +26,27 @@ table(data_raw$synonymicity, data_raw$fixity)
 
 
 # obtain an informative table
-data_raw <- data_raw %>%
+row_tb1 <- data_raw %>%
   summary_factorlist(dependent = "fixity", add_dependent_label = T,
                      explanatory = "synonymicity", add_col_totals = T,
                      include_col_totals_percent = F,
                      column = FALSE, total_col = TRUE)
-data_raw
+row_tb1
+
+
+# bar plot from raw data ---------------------------------------------------------
+
+p1 <- data_raw %>%
+  ggplot(aes(x = synonymicity, fill = fixity)) +
+  geom_bar(position = "fill", width = 0.6) +
+  scale_y_continuous(labels=scales::percent) +
+  scale_fill_jama() +
+  ylab("Percentage") +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "bottom")
+
+
+p1
 
 
 
@@ -58,11 +74,16 @@ tb2
 
 
 # create the bar plot using the geometry `geom_col`
-ggplot(tb2,
+p2 <- ggplot(tb2,
        aes(x = synonymicity, y = perc, 
            fill = fixity, cumulative = TRUE)) +
   geom_col(width = 0.6) +
   geom_text(aes(label = paste0(perc*100,"%")), 
-            position = position_stack(vjust = 0.5)) +
-  scale_y_continuous(labels=scales::percent)
+            position = position_stack(vjust = 0.5), color = "white") +
+  scale_y_continuous(labels=scales::percent) +
+  scale_fill_jama() +
+  ylab("Percentage") +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "bottom")
 
+p2

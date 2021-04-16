@@ -5,7 +5,7 @@ library(rstatix)
 library(tidyverse)
 
 
-# create the table ---------------------------------------------------------------
+# create the initial table of the data---------------------------------------------------------------
 dat <- c(7, 17, 2, 42)
 
 tb <- matrix(dat, nrow = 2, dimnames = list(c("replacement", "synonymous"), c("fixed", "polymorphic ")))
@@ -34,6 +34,8 @@ row_tb1 <- data_raw %>%
 row_tb1
 
 
+
+
 # bar plot from raw data ---------------------------------------------------------
 
 p1 <- data_raw %>%
@@ -54,6 +56,7 @@ p1
 
 
 # bar plot from table --------------------------------------------------------------
+
 
 # using the initial 2x2 table `tb` create a long format table
 tb1 <- as_tibble(tb) %>% 

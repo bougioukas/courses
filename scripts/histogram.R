@@ -17,7 +17,7 @@ dat <- as_tibble(x) %>%
 range(dat$x)
 
 
-# plots --------------------------------------------------------------------------
+# plots ------------------------------------------------------------------------------
 
 # create an histogram (with the frequency polygon)
 p1 <- ggplot(data=dat, aes(x=x)) +
@@ -32,7 +32,7 @@ p1 <- ggplot(data=dat, aes(x=x)) +
 p1 
 
 
-# create the histogram with a density scale and add the density curve
+# create the histogram with a density scale and add a density curve
 p2 <- ggplot(data=dat, aes(x=x)) +
   geom_histogram(aes(x = x, y = ..density..),
                  binwidth = 3, fill = "grey", alpha = 0.2, color = "black") +
@@ -73,4 +73,4 @@ integrate(kde, lower = 0, upper = 30)
 #the function that is used is the Gaussian curve
 
 
-# Exercise: try to change the binwith from the histogram and bw from density plot
+# Exercise: Try to change the binwith from the histogram and bw from density plot

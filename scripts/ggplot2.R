@@ -1,3 +1,3 @@
 ####################### ggplot2 ##############################
 
-# load the packages
+# load packages

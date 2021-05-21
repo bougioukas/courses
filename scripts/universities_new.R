@@ -14,7 +14,7 @@ institutes <- read_excel(here("data", "universities.xlsx"))
 
 
 
-# set new color palette -------------------------------------------------------------
+# set a new color palette -------------------------------------------------------------
 library(paletteer)
 
 scale_tableu <- function(){

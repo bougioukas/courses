@@ -70,7 +70,7 @@ integrate(kde, lower = 0, upper = 30)
 # NOTE: Gaussian kernel
 # For each data point we generate a new value that is some function of the original value 
 #at that point and the surrounding data points. With Gaussian smoothing, 
-#the function that is used is the Gaussian curve
+#the function that is used is the Gaussian curve.
 
 
 # Exercise: Try to change the binwith from the histogram and bw from density plot
